@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: db-deployment
+  name: db-deployment
+  namespace: vote
+spec:
+  selector:
+    matchLabels:
+      app: db-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: db-deployment
+    spec:
+      containers:
+      - image: postgres:9.4
+        env:
+        - name: POSTGRES_PASSWORD
+          value: "Password"
+        name: postgres
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: db-data
+      volumes:
+      - name: db-data
+        emptyDir: {}

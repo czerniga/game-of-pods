@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: iron-gallery-service
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+    nodePort: 30099
+  selector:
+    run: iron-gallery
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

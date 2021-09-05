@@ -1,0 +1,19 @@
+apiVersion: v1
+clusters:
+......
+contexts:
+....
+- context:
+    cluster: kubernetes
+    namespace: development
+    user: drogo
+  name: developer
+current-context: developer
+kind: Config
+preferences: {}
+users:
+......
+- name: drogo
+  user:
+    client-key: /root/drogo.key
+    client-certificate: /root/drogo.crt
